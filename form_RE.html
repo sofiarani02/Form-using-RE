@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Sign up form</title>
+</head>
+<body bgcolor="pink">
+    <script >
+        function validatename()
+        {
+        var n;
+        n=document.form.name.value;
+        var flag;
+        flag =1;
+        if(n == ""||n.length < 6)
+        {
+            flag=0;
+        }
+        if(flag==0)
+        {
+            alert("Invalid, username limit is atleast 6 characters");
+            document.form.name.focus(close);
+            validatepas();
+
+        }
+        else
+        {
+            alert("VALID  USERNAME ENTRY");
+            document.form.name.focus();
+            validatepas();
+        }
+
+        function validatepas()
+        {
+        var  p=document.form.pwd1.value;
+         var flag=1;
+        if(p == ""||p.length < 6)
+        {
+            flag=0;
+        }
+        if(flag==0)
+        {
+            alert("Invalid, password limit is atleast 6 characters");
+            document.form.pwd1.focus();
+            validateemail();
+        }
+        else{
+            alert("VALID PASSWORD ENTRY");
+            validatepas2();
+        }
+        }
+
+        function validatepas2()
+        {
+            var  p1=document.form.pwd1.value;
+        var  p2=document.form.pwd2.value;
+         var flag=1;
+        if(p1 != p2)
+        {
+            flag=0;
+        }
+        if(flag==0)
+        {
+            alert("Re-type password correctly");
+            document.form.pwd2.focus();
+            validateemail();
+        }
+        else{
+            alert("VVALID RE-TYPE PASSWORD ENTRY");
+            validateemail();
+        }
+        }
+
+       function validateemail()
+       {
+        var email = document.form.gmail.value;
+        var pattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if ( (!pattern.test(email))) {
+            alert("Please enter a VALID Gmail address");
+            document.form.gmail.focus();
+            validateAGE();
+        }
+        else 
+        {
+            alert("VALID EMAIL ID");
+            ValidateAGE();
+        }
+       }
+
+       function validateAGE()
+       {
+        var a = document.form.age.value;
+        if(a=="")
+        {
+            alert("Please enter age");
+        }
+        else if(a.length<3)
+        {
+            alert("valid entry for AGE");
+        }
+        else{
+            alert("Invalid entry")
+        }
+       }
+
+    }  
+    </script>
+    <center><h1>REGISTERATION FORM</h1>
+    <form name="form">
+        <br>
+        <br>
+        <div>
+            NAME : <input type="text"  name="name1" id="name"><br><br>
+            PASSWORD : <input type="password"  name="PASSWORD1" id="pwd1"><br><br>
+            RETYPE PASSWORD : <input type="password"  name="PASSWORD2" id="pwd2"><br><br>
+            DATE OF BIRTH : <input type="date" id="bday" name="birthday"><br><br>
+            GMAIL : <input type="emailS"  name="gmail1" id="gmail"><br><br>
+            AGE : <input type="text"  name="AGE1" id="age"><br><br>
+            <input type="submit" value="Submit" onclick="validatename()">         
+            <input type="reset" value="RESET"><br>
+        </div>
+</body>
+</html>
